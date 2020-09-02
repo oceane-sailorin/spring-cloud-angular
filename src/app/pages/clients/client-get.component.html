@@ -1,0 +1,33 @@
+<div class="row">
+ <div class="col-md-12">
+    <nb-card class="inline-form-card">
+      <nb-card-header><h4>Gestion des clients</h4></nb-card-header>
+      <nb-card-body>
+		  <button nbButton status="primary"  (click)="addClient()"> Add Client</button>
+		  <table class="table table-striped">
+		    <thead>
+		    <tr>
+		      <th class="hidden">Id</th>
+		      <th>Code</th>  
+		      <th>Name</th>  
+              <th>Date Creation</th>    
+              <th>Date Archive</th>
+		      <th>Action</th>
+		    </tr>
+		    </thead>
+		    <tbody>
+		    <tr *ngFor="let client of clients">
+		      <td class="hidden">{{client.id}}</td>
+		      <td>{{client.code}}</td>
+		      <td>{{client.naming}}</td>
+  			  <td>{{client.dateCreation | date:'d/MM/y'}}</td> 
+              <td>{{client.dateArchive | date:'d/MM/y'}}</td>
+		      <td><button nbButton status="primary" (click)="deleteClient(client)"> Delete</button>
+		        <button nbButton status="primary" (click)="editClient(client)" style="margin-left: 20px;"> Edit</button></td>
+		    </tr>
+		    </tbody>
+		  </table>
+	 </nb-card-body>
+	</nb-card>
+</div>
+</div>

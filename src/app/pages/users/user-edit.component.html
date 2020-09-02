@@ -1,0 +1,65 @@
+<div class="row">
+ <div class="col-md-12">
+    <nb-card class="inline-form-card">
+      <nb-card-header><h4>Modifier l'utilisateur {{f.firstname.value}} {{f.lastname.value}}</h4></nb-card-header>
+      <nb-card-body>
+		  <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+		      <input type="hidden" formControlName="id" placeholder="id" name="id" class="form-control" id="id">
+             <div class="row">
+		 		<div class="col-md-12">
+			    <div class="form-group">
+			      <label for="firstname">Firstname:</label>
+			      <input type="text" formControlName="firstname" placeholder="firstname" name="firstname" class="form-control" id="firstname" required [ngClass]="{ 'is-invalid': submitted && f.firstname.errors }">
+			       <div *ngIf="submitted && f.firstname.errors" class="invalid-feedback">
+			         <div *ngIf="f.firstname.errors">FirstName is required</div>
+			        </div>
+			    </div>
+			    <div class="form-group">
+			      <label for="lastname">Lastname:</label>
+			      <input type="text" formControlName="lastname" placeholder="lastname" name="lastname" class="form-control" id="lastname" required >
+			    </div>
+			    <div class="form-group">
+			      <label for="login">Login:</label>
+			      <input type="text" formControlName="login" placeholder="login" name="login" class="form-control" id="login" required >
+			    </div>
+			     <div class="form-group" >
+				      <label for="naming">Profile:</label>
+				      <select formControlName="profile" name="profile" id="profile"  class="form-control"  [(ngModel)]="selectedProfile" [ngClass]="{ 'is-invalid': submitted && f.profile.errors }">    
+				     <option *ngFor="let profile of profiles" value="{{profile.id}}" [attr.selected]="profile.naming === 'Administration' ">{{profile.naming}}</option>
+				    </select>
+		
+				    <div *ngIf="submitted && editForm.controls.profile.errors" class="invalid-feedback">
+				        <div *ngIf="editForm.controls.profile.errors">Profile is required</div>
+				    </div>
+			    </div>
+			     <div class="form-group" >			   
+			      <label for="naming">Status:</label>
+			      <select formControlName="status" name="status" id="status" class="form-control"  [(ngModel)]="selectedStatus" [ngClass]="{ 'is-invalid': submitted && f.status.errors }">    
+				     <option *ngFor="let status of statuses" value="{{status.id}}" >{{status.naming}}</option>
+				    </select>
+			
+				    <div *ngIf="submitted && editForm.controls.status.errors" class="invalid-feedback">
+				        <div *ngIf="editForm.controls.status.errors">Status is required</div>
+				    </div>
+			    </div>
+			    <div class="form-group">
+			      <label for="dateCreation">Date Creation:</label>
+			      <input type="text" formControlName="dateCreation" placeholder="dateCreation" name="dateCreation" class="form-control" id="dateCreation"  [readonly]="!editable">
+			    </div>
+			    <div class="form-group">
+			      <label for="dateActivation">Date Activation:</label>
+			      <input type="text" formControlName="dateActivation" placeholder="dateActivation" name="dateActivation" class="form-control" id="dateActivation"  [readonly]="!editable">
+			    </div>
+			    <div class="form-group">
+			      <label for="dateLastConnection">Date Last Connection:</label>
+			      <input type="text" formControlName="dateLastConnection" placeholder="dateLastConnection" name="naming" class="form-control" id="dateLastConnection"  [readonly]="!editable">
+			    </div>     
+			                                
+			    <button nbButton status="primary">Update</button>
+               </div>
+	      </div>
+	    </form>
+  </nb-card-body>
+    </nb-card>
+  </div>
+</div>

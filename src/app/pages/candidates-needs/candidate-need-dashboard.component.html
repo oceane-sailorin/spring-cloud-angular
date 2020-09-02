@@ -1,0 +1,60 @@
+
+
+
+<div class="row">
+ <div class="col-md-12">
+    <nb-card class="inline-form-card">
+      <nb-card-header><h4>Dashboard besoins - candidats</h4></nb-card-header>
+      <nb-card-body>
+		<div class="board" cdkDropList [cdkDropListData]="trackys" (cdkDropListDropped)="onTrackDropy($event)" cdkDropListOrientation="horizontal" *ngFor="let tracky of trackys">
+		
+          <div class="card-list mat-elevation-z1">
+                 <nb-card-header class="nb-card-header">Besoin</nb-card-header>
+              <div class="card-list-content list" >
+		
+		        <mat-card >		          
+		          <mat-card-content>
+                      <div class="cand-name" *ngIf="tracky.need">{{tracky.need.client.naming}}</div>	  
+		              <div>{{tracky.title}}</div>	
+                      <div *ngIf="tracky.need">{{tracky.need.dateNeed  | date:'d/MM/y'}}</div>
+                      <div  *ngIf="tracky.need">{{tracky.need.commercial.lastname}} {{tracky.need.commercial.firstname}}</div>		               
+		          </mat-card-content>
+		        </mat-card>
+		
+		    </div>
+          </div>
+ 
+		  <div class="card-list mat-elevation-z1" *ngFor="let stat of tracky.needCandidatesStat ">
+		
+		    <nb-card-header class="nb-card-header-{{stat.id}}">{{stat.naming}}</nb-card-header>
+
+		
+		    <div class="card-list-content list" cdkDropList [id]="stat.id" [cdkDropListData]="stat.candidatesNeeds"
+		      [cdkDropListConnectedTo]="trackyIds" (cdkDropListDropped)="onTalkyDrop($event)">
+		
+		        <mat-card *ngFor="let candidateNeed of stat.candidatesNeeds" cdkDrag>
+		          <!-- Use the mat-card-content to add the proper spacing. -->
+		          <mat-card-content>
+		              <div class="cand-name">{{candidateNeed.candidate.lastname}} {{candidateNeed.candidate.firstname}}</div>
+		              <div>{{candidateNeed.candidate.profile}}</div>
+                      <div *ngIf="candidateNeed.candidate.dateDisponibility">Dispo: {{candidateNeed.candidate.dateDisponibility | date:'d/MM/y'}}</div>
+                      <div class="keywords">DEV-JAVA</div>
+		          </mat-card-content>
+		        </mat-card>
+		         <div (click)="addCandidateNeed()" class="inline" style="margin-left: 20px;cursor:pointer;"> <nb-icon class="action-icon" icon="plus-outline"></nb-icon></div>
+		    </div>
+		
+		  </div>
+
+		</div>
+ </nb-card-body>
+	</nb-card>
+</div>
+</div>
+
+
+
+
+
+
+

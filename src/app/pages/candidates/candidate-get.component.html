@@ -1,0 +1,56 @@
+<!--<div class="row">
+ <div class="col-md-12">
+    <nb-card class="inline-form-card">
+      <nb-card-header><h4>Gestion des candidats</h4></nb-card-header>
+      <nb-card-body>
+		  <button nbButton status="primary" (click)="addCandidate()"> Add Candidate</button>
+		  <table class="table table-striped">
+		    <thead>
+		    <tr>
+		      <th class="hidden">Id</th>
+		      <th>FirstName</th>
+		      <th>LastName</th>
+		      <th>Email</th>
+		      <th>Phone</th>
+		      <th>Status</th>
+              <th>Action</th>
+		    </tr>
+		    </thead>
+		    <tbody>
+		    <tr *ngFor="let candidate of candidates">
+		      <td class="hidden">{{candidate.id}}</td>
+		      <td>{{candidate.firstname}}</td>
+		      <td>{{candidate.lastname}}</td>
+		      <td>{{candidate.email}}</td>
+		      <td>{{candidate.phone}}</td>
+		      <td>{{candidate.candidateStatus["naming"]}}</td>	 
+		      <td><div (click)="editCandidate(candidate)" class="inline" style="margin-left: 20px;"> <em class="nb-edit" ></em></div>
+                   <div (click)="deleteCandidate(candidate)" class="inline"><em class="nb-trash" ></em></div>
+		        </td>
+		    </tr>
+		    </tbody>
+		  </table>
+	 </nb-card-body>
+	</nb-card>
+</div>
+</div>-->
+
+<div class="row">
+ <div class="col-md-12">
+    <nb-card class="inline-form-card">
+      <nb-card-header><h4>Gestion des candidats</h4></nb-card-header>
+      <nb-card-body>
+		  <button nbButton status="primary" (click)="addCandidate()"> Add Candidate</button>
+
+			<nb-card>
+			 
+			
+			  <nb-card-body>
+			    <ng2-smart-table [settings]="settings" [source]="candidates" (custom)="onCustomAction($event)"  >
+			    </ng2-smart-table>
+			  </nb-card-body>
+			</nb-card>
+</nb-card-body>
+	</nb-card>
+</div>
+</div>

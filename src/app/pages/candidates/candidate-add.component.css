@@ -1,0 +1,9 @@
+.candidate-container {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+button{
+	background-color: #5ca1db;
+}

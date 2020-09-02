@@ -1,0 +1,31 @@
+<nb-card>
+  <nb-card-header>Upload your file</nb-card-header>
+  <nb-card-body>  
+  
+	<div *ngIf="currentFile" class="progress">
+	  <div
+	    class="progress-bar progress-bar-info progress-bar-striped"
+	    role="progressbar"
+	    attr.aria-valuenow="{{ progress }}"
+	    aria-valuemin="0"
+	    aria-valuemax="100"
+	    [ngStyle]="{ width: progress + '%' }"
+	  >
+	    {{ progress }}%
+	  </div>
+	</div>
+
+<label >
+  <input type="file" nbButton matRipple class="form-control" name="filename" #filename (change)="selectFile($event)" />
+</label>
+
+<div class="alert alert-light" role="alert">{{ message }}</div>
+
+
+
+</nb-card-body>
+  <nb-card-footer>
+    <button class="cancel" nbButton matRipple status="danger" (click)="cancel()">Cancel</button>
+    <button nbButton matRipple status="success"  [disabled]="!selectedFiles" (click)="upload()">Upload</button>
+  </nb-card-footer>
+</nb-card>

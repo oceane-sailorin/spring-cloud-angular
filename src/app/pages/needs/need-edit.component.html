@@ -1,0 +1,184 @@
+<div class="row">
+ <div class="col-md-12">
+    <nb-card class="inline-form-card">
+      <nb-card-header><h4>Modifier le besoin {{f.title.value}} </h4></nb-card-header>
+      <nb-card-body>
+  		<form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+    <div class="hidden">
+      <input type="hidden" formControlName="id" placeholder="id" name="id" class="form-control" id="id">
+    </div>
+ 		<div class="row">
+		 <div class="col-md-6">
+		  <nb-card>
+		      <nb-card-header>Client</nb-card-header>
+		      <nb-card-body>
+				<div class="row">
+		          <div class="col-sm-4">
+		             <div class="form-group">
+				      <label for="naming">Client:</label>
+				      <select formControlName="client" name="client" id="client"  class="form-control"  [(ngModel)]="selectedClient" [ngClass]="{ 'is-invalid': submitted && f.client.errors }">    
+					     <option *ngFor="let client of clients" value="{{client.id}}" >{{client.naming}}</option>
+					    </select>
+				
+					    <div *ngIf="submitted && f.client.errors" class="invalid-feedback">
+					        <div *ngIf="f.client.errors">Client is required</div>
+					    </div>
+				      </div>	
+                    </div>
+                     <div class="col-sm-4">
+					   <div class="form-group">
+					      <label for="naming">Poste:</label>
+					      <input type="text" formControlName="poste" placeholder="poste" name="poste" class="form-control" id="poste" required [ngClass]="{ 'is-invalid': submitted && f.poste.errors }">
+					     <div *ngIf="submitted && f.poste.errors" class="invalid-feedback">
+					       <div *ngIf="f.poste.errors">Poste is required</div>
+					       </div>
+					   </div>
+		             </div>
+                     <div class="col-sm-4">
+			            <div class="form-group">
+					      <label for="naming">Département:</label>
+					      <input type="text" formControlName="departement" placeholder="departement" name="departement" class="form-control" id="departement" required [ngClass]="{ 'is-invalid': submitted && f.departement.errors }">
+					     <div *ngIf="submitted && f.departement.errors" class="invalid-feedback">
+					       <div *ngIf="f.departement.errors">Département is required</div>
+					       </div>
+					   </div>					    
+                    </div>                  
+               </div>
+			<div class="row">
+		          <div class="col-sm-4">
+		             <div class="form-group">
+				      <label for="naming">Status:</label>
+				       <select formControlName="status" class="form-control"   [(ngModel)]="selectedStatus"  [ngClass]="{ 'is-invalid': submitted && f.status.errors }">    
+						    <option *ngFor="let status of needsStatuses" value="{{status.id}}" >{{status.naming}}</option>                
+						</select>	
+				
+					    <div *ngIf="submitted && f.status.errors" class="invalid-feedback">
+					        <div *ngIf="f.status.errors">Status is required</div>
+					    </div>
+				      </div>	
+                    </div>
+                     <div class="col-sm-8">
+					   <div class="form-group">
+					      <label for="naming">Intitulé:</label>
+					      <input type="text" formControlName="title" placeholder="title" name="title" class="form-control" id="title" required [ngClass]="{ 'is-invalid': submitted && f.title.errors }">
+					     <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
+					       <div *ngIf="f.title.errors">Title is required</div>
+					       </div>
+					   </div>
+		             </div>
+                  </div>
+            </nb-card-body>
+           </nb-card>
+            <div class="row">
+		          <div class="col-sm-6">
+                   <nb-card>
+				      <nb-card-header>Priorité</nb-card-header>
+				      <nb-card-body>
+						<div class="row">
+				          <div class="col-sm-12">
+                            <div class="form-group">						     
+					         <select formControlName="priority" class="form-control"  [(ngModel)]="selectedPriority"  [ngClass]="{ 'is-invalid': submitted && f.priority.errors }">    
+						     <option *ngFor="let priority of priorities" value="{{priority.id}}" >{{priority.naming}}</option> 
+						    </select>
+		 					<div *ngIf="submitted && f.priority.errors" class="invalid-feedback">
+					        	<div *ngIf="f.priority.errors">Priority is required</div>
+					        </div>	 
+						    </div>	
+		                  </div>
+                       </div>
+                       </nb-card-body>
+                      </nb-card>
+                     </div>
+		              <div class="col-sm-6">
+                         <nb-card>
+					      <nb-card-header>Date du besoin</nb-card-header>
+					      <nb-card-body>
+							<div class="row">
+					          <div class="col-sm-12">
+	                            <div class="form-group">							     
+							     <input type="date" formControlName="dateNeed" placeholder="dateNeed" name="dateNeed" class="form-control" id="dateNeed"  [(ngModel)]="selectedDateNeed">							      
+								</div>	
+			                  </div>
+                           </div>
+                         </nb-card-body>
+                      </nb-card>
+                  </div>
+          </div>
+          <nb-card>
+		      <nb-card-header>Description</nb-card-header>
+		      <nb-card-body>
+				<div class="row">
+		          <div class="col-sm-12">
+					 <div class="form-group">
+						<multiselect-dropdown formControlName="keywords" id="keywords" name="keywords" [(ngModel)]="selectedItems" 
+						  [placeholder]="'Select keywords'"
+						  [settings]="dropdownSettings"
+						  [data]="dropdownList"
+						  (onSelect)="onItemSelect($event)"
+						  (onSelectAll)="onSelectAll($event)"
+						>
+						</multiselect-dropdown>
+  						</div> 
+		         </div>                
+			</div>				
+				<div class="row">
+		          <div class="col-sm-12">
+					 <div class="form-group">					      
+					     <textarea rows="5"   formControlName="description" placeholder="description" name="description" class="form-control" id="description"></textarea>
+					   </div> 
+		         </div>                
+			</div>
+ 			</nb-card-body>
+           </nb-card>     
+       </div>
+      <div class="col-md-6">
+		  <nb-card>
+		      <nb-card-header>Commercial</nb-card-header>
+		      <nb-card-body>
+				<div class="row">
+		          <div class="col-sm-12">								    
+					<div class="form-group">			      
+				      <select formControlName="commercial" name="commercial" id="commercial"  class="form-control"  [(ngModel)]="selectedCommercial" [ngClass]="{ 'is-invalid': submitted && f.commercial.errors }">    
+					     <option *ngFor="let commercial of commercials" value="{{commercial.id}}" >{{commercial.lastname}} {{commercial.firstname}}</option>
+					    </select>
+				
+					    <div *ngIf="submitted && f.commercial.errors" class="invalid-feedback">
+					        <div *ngIf="f.commercial.errors">Commercial is required</div>
+					    </div>
+				      </div>	
+						
+				     </div>                    
+				</div>
+ 			</nb-card-body>
+           </nb-card>	
+           <nb-card>
+		      <nb-card-header>Fiche de poste</nb-card-header>
+		      <nb-card-body>
+				<div class="row">
+		          <div class="col-sm-4">
+					 <div class="form-group" *ngIf="!!f.filename.value" >					      
+                         <a target="_blank" rel="noopener noreferrer" href="{{currentUrl}}" title="{{currentUrl}}" class="curse"> PDF</a>
+					   </div> 
+		          </div>
+                  <div class="col-sm-4">
+						<div class="form-group">					      
+					     <a (click)="openUpload()" class="curse">Upload (pdf only)</a>
+					   </div> 
+		         </div>  
+                <div class="row">
+		          <div class="col-sm-4"> 
+                    {{ newFile }}  
+ 					</div> 
+		         </div>                         
+				</div>					
+ 			</nb-card-body>
+           </nb-card>
+                  
+			    <button nbButton status="primary">Update</button>
+			 </div>	 
+         </div> 
+       </form>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>

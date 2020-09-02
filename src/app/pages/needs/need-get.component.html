@@ -1,0 +1,55 @@
+<div class="row">
+ <div class="col-md-12">
+    <nb-card class="inline-form-card">
+      <nb-card-header><h4>Gestion des besoins clients</h4></nb-card-header>
+      <nb-card-body>
+		  <button nbButton status="primary" (click)="addNeed()"> Add</button>
+		  <table class="table table-striped">
+		    <thead>
+		    <tr>
+		      <th class="hidden">Id</th>
+		      <th>Title</th>
+		      <th>Status</th>
+		      <th>Priority</th>
+		      <th>Poste</th>
+		      <th>Departement</th>
+			  <th>Client</th>
+			  <th>Commercial</th>
+			  <th>Creation date</th>
+	          <th>Need date</th>
+              <th>Action</th>
+		    </tr>
+		    </thead>
+		    <tbody>
+		    <tr *ngFor="let need of needs">
+		      <td class="hidden">{{need.id}}</td>
+		      <td>{{need.title}}</td>
+		      <td>{{need.status["naming"]}}</td>
+		      <td>{{need.priority["naming"]}}</td>
+		      <td>{{need.poste}}</td>
+			  <td>{{need.departement}}</td>	          
+              <td>{{need.client["naming"]}}</td>
+		      <td>{{need.commercial["login"]}}</td>	
+			  <td>{{need.dateCreation | date:'d/MM/y'}}</td>
+	          <td>{{need.dateNeed | date:'d/MM/y'}}</td> 
+		      <td>
+                   <div (click)="editNeed(need)" class="inline" style="margin-left: 20px;"> <em class="nb-edit" ></em></div>
+                   <div (click)="deleteNeed(need)" class="inline"><em class="nb-trash" ></em></div>
+		        </td>
+		    </tr>
+		    </tbody>
+		  </table>
+	 </nb-card-body>
+	</nb-card>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+

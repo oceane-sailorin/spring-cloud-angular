@@ -1,0 +1,57 @@
+<div class="row">
+ <div class="col-md-12">
+    <nb-card class="inline-form-card">
+      <nb-card-header><h4>Ajouter un utilisateur</h4></nb-card-header>
+      <nb-card-body>
+		<form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+		<div class="row">
+		 <div class="col-md-12">
+		   <div class="form-group">
+		      <label for="naming">Firstname:</label>
+		      <input type="text" formControlName="firstname" placeholder="firstname" name="firstname" class="form-control" id="firstname" required [ngClass]="{ 'is-invalid': submitted && f.firstname.errors }">
+		      <div *ngIf="submitted && f.firstname.errors" class="invalid-feedback">
+		       <div *ngIf="f.firstname.errors">First Name is required</div>
+		       </div>
+		   </div>
+		    <div class="form-group">
+		      <label for="naming">Lastname:</label>
+		      <input type="text" formControlName="lastname" placeholder="lastname" name="lastname" class="form-control" id="lastname" required  [ngClass]="{ 'is-invalid': submitted && f.lastname.errors }">
+		     <div *ngIf="submitted && f.lastname.errors" class="invalid-feedback">
+		       <div *ngIf="f.lastname.errors">Last Name is required</div>   
+		     </div>
+		    </div>
+		    <div class="form-group">
+		      <label for="naming">Login:</label>
+		      <input type="text" formControlName="login" placeholder="login" name="login" class="form-control" id="login" required  [ngClass]="{ 'is-invalid': submitted && f.login.errors }">
+		     <div *ngIf="submitted && f.login.errors" class="invalid-feedback">
+		       <div *ngIf="f.login.errors">Login is required</div>      
+		     </div>
+		    </div>
+		     <div class="form-group">
+		      <label for="naming">Profile:</label>
+		      <select formControlName="profile" name="profile" id="profile"  class="form-control"  [ngClass]="{ 'is-invalid': submitted && f.profile.errors }">    
+			     <option *ngFor="let profile of profiles" value="{{profile.id}}" [attr.selected]="profile.naming === 'Administration' ">{{profile.naming}}</option>
+			    </select>
+		
+			    <div *ngIf="submitted && addForm.controls.profile.errors" class="invalid-feedback">
+			        <div *ngIf="addForm.controls.profile.errors">Profile is required</div>
+			    </div>
+		      </div>
+		     <div class="form-group" >
+		      <label for="naming">Status:</label>
+		     <select formControlName="status" name="status" id="status" class="form-control"  [ngClass]="{ 'is-invalid': submitted && f.status.errors }">    
+			     <option *ngFor="let status of statuses" value="{{status.id}}" [attr.selected]="status.naming === 'Actif' ">{{status.naming}}</option>
+			    </select>
+		
+			    <div *ngIf="submitted && addForm.controls.status.errors" class="invalid-feedback">
+			        <div *ngIf="addForm.controls.status.errors">Status is required</div>
+			    </div>
+		    </div>
+		    <button nbButton status="primary">Add</button>
+          </div>
+      </div>
+    </form>
+  </nb-card-body>
+    </nb-card>
+  </div>
+</div>

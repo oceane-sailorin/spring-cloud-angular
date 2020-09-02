@@ -1,0 +1,31 @@
+<mat-toolbar color="primary" class="example-toolbar">
+	<button mat-icon-button (click)="isExpanded = !isExpanded"><mat-icon>menu</mat-icon></button>
+	<h1 class="example-app-name">BCC</h1>
+</mat-toolbar>
+<mat-sidenav-container class="example-container" autosize>
+	<mat-sidenav #sidenav class="example-sidenav" mode="side" opened="true" >
+		<mat-nav-list>
+			<mat-list-item (click)="showSubmenu = !showSubmenu" class="parent">
+				<span  *ngIf="isExpanded || isShowing"><mat-icon mat-list-icon>home</mat-icon></span>
+				<span  *ngIf="isExpanded || isShowing">Home</span>
+				<mat-icon class="menu-button" [ngClass]="{'rotated' : showSubmenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+			</mat-list-item>
+			<div class="submenu" [ngClass]="{'expanded' : showSubmenu}" *ngIf="isShowing || isExpanded">
+				<a mat-list-item routerLink="/users/add-user" routerLinkActive="active"><span><img src="assets/img/add_user.png"  alt="add user" width="32" height="32"> </span><span>Create User</span></a>
+				<a mat-list-item routerLink="/users" routerLinkActive="active"><span><img src="assets/img/users.png"  alt="users" width="32" height="32"> </span><span>List Users</span></a>
+				<a mat-list-item routerLink="/profiles/add-profile" routerLinkActive="active"><span><img src="assets/img/profile.png"  alt="add profile" width="32" height="32"> </span><span>Create Profile</span></a>
+				<a mat-list-item routerLink="/profiles" routerLinkActive="active"><span><img src="assets/img/profile.png"  alt="profiles" width="32" height="32"> </span><span>List Profiles</span></a>								
+				<a mat-list-item routerLink="/candidates/add-candidate" routerLinkActive="active"><span><img src="assets/img/upload_cv.png"  alt="add profile" width="32" height="32"> </span><span>Create Candidate</span></a>
+				<a mat-list-item routerLink="/candidates" routerLinkActive="active"><span><img src="assets/img/insert_candidate.png"  alt="dashboard candidates" width="32" height="32"> </span><span>Dashboard candidates</span></a>								
+			
+			</div>
+		
+		</mat-nav-list>
+    <mat-nav-list>
+</mat-nav-list>
+	</mat-sidenav>
+		<router-outlet></router-outlet>
+</mat-sidenav-container>
+
+
+

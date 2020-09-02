@@ -1,0 +1,79 @@
+/* Bordered form */
+form {
+  border: 3px solid rgb(0, 45, 81);
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:800px; 
+  min-height:100vh; 
+  margin-left:-400px; /* -largeur/2 */
+  margin-top:-200px; /* -hauteur/2 */
+  border-radius: 50px;
+  box-shadow: 8px 8px 12px #aaa;
+}
+
+/* Full-width inputs */
+input[type=text], input[type=password] {
+  text-align: left;
+  width: 40%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #002d51;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 15%;
+  border-radius: 10px;
+  float: right;
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+  opacity: 0.5;
+}
+
+/* Center the avatar image inside this container */
+.imgcontainer {
+  text-align: left;
+}
+
+/* Avatar image */
+img.sii {
+  float : left;
+  width: 5%;
+  border-radius: 50%;
+}
+
+.header {
+	height: 40px;
+  	width: 800px;
+  	border-radius: 47px 47px 0 0;
+  	background-color: #002d51;
+}
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.container1 {
+	padding: 2px;
+	text-align: left;
+	margin-left:300px;
+}
+
+.text1{
+	color: #002d51; 
+	font-family:calibri;
+}

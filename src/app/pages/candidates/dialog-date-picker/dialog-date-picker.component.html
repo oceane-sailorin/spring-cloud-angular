@@ -1,0 +1,10 @@
+<nb-card>
+  <nb-card-header>Enter your Date</nb-card-header>
+  <nb-card-body>  
+		<input type="date" #dateUpdate placeholder="date" nbInput  >
+  </nb-card-body>
+  <nb-card-footer>
+    <button class="cancel" nbButton matRipple status="danger" (click)="cancel()">Cancel</button>
+    <button nbButton matRipple status="success" (click)="submit(dateUpdate.value)">Submit</button>
+  </nb-card-footer>
+</nb-card>

@@ -1,0 +1,47 @@
+
+
+
+
+
+
+<div class="row">
+ <div class="col-md-12">
+    <nb-card class="inline-form-card">
+      <nb-card-header><h4>Dashboard candidats</h4></nb-card-header>
+      <nb-card-body>
+		<div class="board" cdkDropList [cdkDropListData]="trackys" (cdkDropListDropped)="onTrackDropy($event)" cdkDropListOrientation="horizontal">
+		
+		  <div class="card-list mat-elevation-z1" *ngFor="let tracky of trackys">
+		
+		    <nb-card-header class="nb-card-header-{{tracky.id}}">{{tracky.naming}}</nb-card-header>
+		
+		    <div class="card-list-content list" cdkDropList [id]="tracky.id" [cdkDropListData]="tracky.candidates"
+		      [cdkDropListConnectedTo]="trackyIds" (cdkDropListDropped)="onTalkyDrop($event)">
+		
+		
+		        <mat-card *ngFor="let candidate of tracky.candidates" cdkDrag>
+		          <!-- Use the mat-card-content to add the proper spacing. -->
+		          <mat-card-content>
+		              <div class="cand-name">{{candidate.lastname}} {{candidate.firstname}}</div>
+		              <div>{{candidate.profile}}</div>
+                      <div *ngIf="candidate.dateDisponibility">Dispo: {{candidate.dateDisponibility | date:'d/MM/y'}}</div>
+                      <div class="keywords">DEV-JAVA</div>
+		          </mat-card-content>
+		        </mat-card>
+		
+		    </div>
+		
+		  </div>
+		
+		</div>
+ </nb-card-body>
+	</nb-card>
+</div>
+</div>
+
+
+
+
+
+
+

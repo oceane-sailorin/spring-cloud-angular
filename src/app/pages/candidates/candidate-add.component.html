@@ -1,0 +1,256 @@
+<div class="row">
+ <div class="col-md-12">
+    <nb-card class="inline-form-card">
+      <nb-card-header><h4>Ajouter un candidat</h4></nb-card-header>
+      <nb-card-body>
+		<form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+		<div class="row">
+		 <div class="col-md-6">
+		  <nb-card>
+		      <nb-card-header>Identity</nb-card-header>
+		      <nb-card-body>
+				<div class="row">
+		          <div class="col-sm-6">		           
+					   <div class="form-group">
+					      <label for="naming">Identity:</label>
+					      <input type="text" formControlName="identity" placeholder="identity" name="identity" class="form-control" id="identity" required [ngClass]="{ 'is-invalid': submitted && f.identity.errors }">
+					     <div *ngIf="submitted && f.identity.errors" class="invalid-feedback">
+					       <div *ngIf="f.identity.errors">Identity is required</div>
+					       </div>
+					   </div>
+					    <div class="form-group" >
+					      <label for="naming">Gender:</label>
+					         <select formControlName="gender" class="form-control"  [(ngModel)]='selectedGender'>    
+						     <option value="MR">Mr</option>
+					         <option value="MRS">Mrs</option>
+						    </select>	  
+					      </div>
+                    </div>
+                    <div class="col-sm-6">            
+					    <div class="form-group">
+					      <label for="naming">Firstname:</label>
+					      <input type="text" formControlName="firstname" placeholder="firstname" name="firstname" class="form-control" id="firstname" required [ngClass]="{ 'is-invalid': submitted && f.firstname.errors }">
+					       <div *ngIf="submitted && f.firstname.errors" class="invalid-feedback">
+					       <div *ngIf="f.firstname.errors">FirstName is required</div>
+					       </div>
+					   </div>
+					    <div class="form-group">
+					      <label for="naming">Lastname:</label>
+					      <input type="text" formControlName="lastname" placeholder="lastname" name="lastname" class="form-control" id="lastname" required [ngClass]="{ 'is-invalid': submitted && f.lastname.errors }">
+					     <div *ngIf="submitted && f.lastname.errors" class="invalid-feedback">
+					       <div *ngIf="f.lastname.errors">Lastname is required</div>
+					       </div>
+					    </div>
+	               </div>
+               </div>
+            </nb-card-body>
+           </nb-card>
+          <nb-card>
+		      <nb-card-header>Profile & PS</nb-card-header>
+		      <nb-card-body>
+				<div class="row">
+		          <div class="col-sm-9">
+					 <div class="form-group">
+					      <label for="naming">Profile:</label>
+					      <input type="text" formControlName="profile" placeholder="profile" name="profile" class="form-control" id="profile"  [ngClass]="{ 'is-invalid': submitted && f.profile.errors }">
+					       <div *ngIf="submitted && f.profile.errors" class="invalid-feedback">
+					       <div *ngIf="f.profile.errors">Profile is not valid</div>
+					       </div> 
+					   </div> 
+		         </div>
+                  <div class="col-sm-3">
+						  <div class="form-group">
+						      <label for="naming">Salary:</label>
+						      <input type="text" formControlName="salary" placeholder="salary" name="salary" class="form-control" id="salary"  [ngClass]="{ 'is-invalid': submitted && f.salary.errors }">
+						      <div *ngIf="submitted && f.salary.errors" class="invalid-feedback">
+						       <div *ngIf="f.salary.errors">Salary is not valid</div>
+						     </div>  
+						</div>	
+				</div>
+			</div>
+			<div class="row">
+		          <div class="col-sm-12">
+					 <div class="form-group">						
+						<ng-multiselect-dropdown  formControlName="keywords" id="keywords" name="keywords"
+						  [placeholder]="'Select keywords'"
+				          [settings]="dropdownSettings"
+						  [data]="dropdownList"
+						  [(ngModel)]="selectedItems"
+						  (onSelect)="onItemSelect($event)"
+						  (onSelectAll)="onSelectAll($event)"
+						>
+						</ng-multiselect-dropdown>
+  						</div> 
+		         </div>                
+			</div>				
+ 			</nb-card-body>
+           </nb-card>
+          <nb-card>
+		      <nb-card-header>Coordonnées</nb-card-header>
+		      <nb-card-body>
+				<div class="row">	
+				  <div class="col-sm-12">						
+					   <div class="form-group">
+					      <label for="naming">Email:</label>
+					      <input type="text" formControlName="email" placeholder="email" name="email" class="form-control" id="email"  [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+					      <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+					       <div *ngIf="f.email.errors">Email is not valid</div>
+					       </div>   
+					    </div>
+					   <div class="form-group">
+					      <label for="naming">Phone:</label>
+					      <input type="text" formControlName="phone" placeholder="phone" name="phone" class="form-control" id="phone"  [ngClass]="{ 'is-invalid': submitted && f.phone.errors }">
+					      <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+					       <div *ngIf="f.phone.errors">Phone is not valid</div>
+					       </div>    
+					   </div>
+					   <div class="form-group">
+					      <label for="naming">Address:</label>
+					      <input type="text" formControlName="address" placeholder="address" name="address" class="form-control" id="address"  [ngClass]="{ 'is-invalid': submitted && f.address.errors }">
+					       <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+					       <div *ngIf="f.address.errors">Address is not valid</div>
+					       </div>   
+					    </div> 
+					 <div class="form-group">
+					  <label for="naming">Country:</label>
+					  <select formControlName="country" name="country" id="country" class="form-control" [(ngModel)]="selectedCountry"  [ngClass]="{ 'is-invalid': submitted && f.country.errors }">    
+					     <option *ngFor="let country of countries" value="{{country.id}}" >{{country.naming}}</option>
+					    </select>
+					
+					    <div *ngIf="submitted && f.country.errors" class="invalid-feedback">
+					        <div *ngIf="f.country.errors">Country is required</div>
+					    </div>
+					  </div>
+			      </div>
+				</div>
+ 			</nb-card-body>
+           </nb-card>
+          <nb-card>
+		      <nb-card-header>Stack</nb-card-header>
+		      <nb-card-body>
+				<div class="row">
+				  <div class="col-sm-12">	
+					  <div class="form-group">
+					      <label for="naming">Stack:</label>
+					      <input type="text" formControlName="stack" placeholder="stack" name="stack" class="form-control" id="stack"  [ngClass]="{ 'is-invalid': submitted && f.stack.errors }">
+					     <div *ngIf="submitted && f.stack.errors" class="invalid-feedback">
+					       <div *ngIf="f.stack.errors">Stack is not valid</div>
+					       </div>
+					     </div>
+  					</div>
+				</div>
+ 			</nb-card-body>
+           </nb-card>	
+       </div>
+      <div class="col-md-6">
+		  <nb-card>
+		      <nb-card-header>Contacts</nb-card-header>
+		      <nb-card-body>
+				<div class="row">
+		          <div class="col-sm-6">								    
+						<div class="form-group">
+						  <label for="naming">Source:</label>
+						  <select formControlName="source" name="source" id="source" class="form-control" [(ngModel)]="selectedSource"  [ngClass]="{ 'is-invalid': submitted && f.source.errors }">    
+						     <option *ngFor="let source of sources" value="{{source.id}}" >{{source.naming}}</option>
+						    </select>
+						
+						    <div *ngIf="submitted && f.source.errors" class="invalid-feedback">
+						        <div *ngIf="f.source.errors">Source is required</div>
+						    </div>
+						  </div>
+						<div class="form-group">
+						  <label for="naming">Status:</label>
+						  <select formControlName="candidateStatus" name="candidateStatus" id="candidateStatus" class="form-control" [(ngModel)]="selectedCandidateStatus"  [ngClass]="{ 'is-invalid': submitted && f.candidateStatus.errors }">    
+						     <option *ngFor="let candidateStatus of candidatesStatuses" value="{{candidateStatus.id}}" >{{candidateStatus.naming}}</option>
+						    </select>
+						
+						    <div *ngIf="submitted && f.candidateStatus.errors" class="invalid-feedback">
+						        <div *ngIf="f.candidateStatus.errors">Status is required</div>
+						    </div>
+						  </div> 
+				     </div>
+                     <div class="col-sm-6">
+						<div class="form-group">
+						  <label for="naming">Recruiter:</label>
+						  <select formControlName="recruiter" name="recruiter" id="recruiter" class="form-control" [(ngModel)]="selectedRecruiter"  [ngClass]="{ 'is-invalid': submitted && f.recruiter.errors }">    
+						     <option *ngFor="let recruiter of recruiters" value="{{recruiter.id}}" >{{recruiter.login}}</option>
+						    </select>
+						
+						    <div *ngIf="submitted && f.recruiter.errors" class="invalid-feedback">
+						        <div *ngIf="f.recruiter.errors">Recruiter is required</div>
+						    </div>
+						  </div> 
+						<div class="form-group" >
+						  <label for="naming">Sourcer:</label>
+						  <select formControlName="sourcer" name="sourcer" id="sourcer" class="form-control" [(ngModel)]="selectedSourcer"  [ngClass]="{ 'is-invalid': submitted && f.sourcer.errors }">    
+						     <option *ngFor="let sourcer of sourcers" value="{{sourcer.id}}" >{{sourcer.login}}</option>
+						    </select>
+						
+						    <div *ngIf="submitted && f.sourcer.errors" class="invalid-feedback">
+						        <div *ngIf="f.sourcer.errors">Sourcer is required</div>
+						    </div>
+						  </div> 
+                      </div>
+				</div>
+ 			</nb-card-body>
+           </nb-card>	
+           <nb-card>
+		      <nb-card-header>Dates</nb-card-header>
+		      <nb-card-body>
+				<div class="row">
+		          <div class="col-sm-6">	
+					  <div class="form-group">
+					      <label for="naming">Date Disponibility:</label>
+					      <input type="date"  formControlName="dateDisponibility" placeholder="dateDisponibility" name="dateDisponibility" class="form-control" id="dateDisponibility"  >
+					  </div>
+					  <div class="form-group">
+					      <label for="naming">Date Interview SII:</label>
+					      <input type="date"  formControlName="dateSiiInterview" placeholder="dateSiiInterview" name="dateSiiInterview" class="form-control" id="dateSiiInterview"  >
+					  </div>
+					  <div class="form-group">
+					      <label for="naming">Date Sourcing:</label>
+					      <input type="date"  formControlName="dateSourcing" placeholder="dateSourcing" name="dateSourcing" class="form-control" id="dateSourcing"  >
+					  </div>
+			      </div>
+                  <div class="col-sm-6">	
+					  <div class="form-group">
+					      <label for="naming">Date Proposition:</label>
+					      <input type="date"  formControlName="dateProposition" placeholder="dateProposition" name="dateProposition" class="form-control" id="dateProposition"  >
+					  </div>
+					  <div class="form-group">
+					      <label for="naming">Date Signature:</label>
+					      <input type="date"  formControlName="dateSignature" placeholder="dateSignature" name="dateSignature" class="form-control" id="dateSignature"  >
+					  </div>
+					  <div class="form-group">
+					      <label for="naming">Date Last Update:</label>
+					      <input type="date"  formControlName="dateLastUpdate" placeholder="dateLastUpdate" name="dateLastUpdate" class="form-control" id="dateLastUpdate"  >
+					  </div> 
+			      </div>
+				</div>				
+ 			</nb-card-body>
+           </nb-card>
+ 			<nb-card>
+		      <nb-card-header>CV</nb-card-header>
+		      <nb-card-body>
+				<div class="row">
+		          <div class="col-sm-6">
+					 <div class="form-group">					      
+					     <a (click)="openUpload()" class="curse">Upload</a>
+					   </div> 
+		         </div> 
+					<div class="row">
+		          <div class="col-sm-6"> 
+                    {{ fileName }}  
+ 					</div> 
+		         </div>                   
+				</div>				
+ 			</nb-card-body>
+           </nb-card>
+           <button nbButton status="primary">Add</button>
+         </div>	 
+         </div> 
+       </form>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
