@@ -10,6 +10,12 @@ Install java
 Update environment variables (PATH and JAVA_HOME)
 JAVA_HOME : add path to jdk-11.0.6
 
+PATH : 
+Path_to\jdk-11.0.6\bin
+Path_to\jdk-11.0.6
+Path_to\spring-2.2.4.RELEASE\bin
+
+
 # Client
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.4.
