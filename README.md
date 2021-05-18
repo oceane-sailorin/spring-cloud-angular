@@ -15,11 +15,11 @@ Path_to\jdk-11.0.6\bin <br />
 Path_to\jdk-11.0.6 <br />
 Path_to\spring-2.2.4.RELEASE\bin <br />
 
-Install eclipse or any java editor
-Check jre : be careful to have jdk-11.0.6 as jre (and not the pre-installed former jre-8.xxx
-Install Tools4 from marketplace
-Install wild web developer from marketplace
-Install git
+Install eclipse or any java editor <br />
+Check jre : be careful to have jdk-11.0.6 as jre (and not the pre-installed former jre-8.xxx <br />
+Install Tools4 from marketplace <br />
+Install wild web developer from marketplace <br />
+Install git <br />
 
 
 # Client
