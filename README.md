@@ -1,3 +1,15 @@
+# Installation software
+
+Download docker (latest stable version in https://www.docker.com/)
+
+Download postgresql 12.2 
+
+Download node.js 12.16.1 https://nodejs.org/en/
+Add path to node in PATH
+Install java
+Update environment variables (PATH and JAVA_HOME)
+JAVA_HOME : add path to jdk-11.0.6
+
 # Client
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.4.
