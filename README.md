@@ -1,3 +1,6 @@
+Application to match clients needs and candidates for recruitment business management
+Microservices architecture
+
 # Installation software
 
 Download docker (latest stable version in https://www.docker.com/)
