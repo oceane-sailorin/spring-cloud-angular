@@ -1,4 +1,4 @@
-Application to match clients needs and candidates for recruitment business management
+Application to match clients needs and candidates (recruitment business management) <br />
 Microservices architecture
 
 # Installation software
