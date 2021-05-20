@@ -25,30 +25,67 @@ Install wild web developer from marketplace <br />
 Install git <br />
 
 
-# Client
+# Client installation
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.4.
+In git : 
+cd project_path
+Install ui : 
+./mvnw generate-resources
 
-## Development server
+Then :
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+give execution rights to npm
 
-## Code scaffolding
+then :
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+./npm install @angular/cli
 
-## Build
+Then :
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+give execution rights to ng
 
-## Running unit tests
+npm install
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+then :
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+ng serve
 
-## Further help
+if everything ok : 
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+ctrl c
+
+then :
+
+./npm install bootstrap jquery –save
+
+
+Add nebular :
+
+ng add @nebular/theme
+ng add @nebular/auth
+
+ng add @nebular/security
+ng add @asymmetrik/ngx-leaflet
+ng add @angular/google-maps
+npm install --save ngx-echarts
+npm install --save leaflet
+npm install --save @swimlane/ngx-charts
+npm install --save angular2-chartjs 
+npm install --save echarts 
+
+npm install @angular/cdk
+
+npm install --save angular2-chartjs 
+npm install --save ng2-ckeditor 
+npm install --save ng2-smart-table
+npm install --save @akveo/ng2-completer
+
+npm install --save @angular/cdk @angular/animations
+npm install --save nebular-icons
+npm install crypto-random-string
+
+Then : 
+
+Run project as spring boot app to check if server ok
+
