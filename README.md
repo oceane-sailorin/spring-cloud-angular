@@ -62,28 +62,28 @@ then :
 
 Add nebular :
 
-ng add @nebular/theme
-ng add @nebular/auth
+ng add @nebular/theme <br />
+ng add @nebular/auth <br />
 
-ng add @nebular/security
-ng add @asymmetrik/ngx-leaflet
-ng add @angular/google-maps
-npm install --save ngx-echarts
-npm install --save leaflet
-npm install --save @swimlane/ngx-charts
-npm install --save angular2-chartjs 
-npm install --save echarts 
+ng add @nebular/security <br />
+ng add @asymmetrik/ngx-leaflet <br />
+ng add @angular/google-maps <br />
+npm install --save ngx-echarts <br />
+npm install --save leaflet <br />
+npm install --save @swimlane/ngx-charts<br />
+npm install --save angular2-chartjs <br />
+npm install --save echarts <br />
 
-npm install @angular/cdk
+npm install @angular/cdk <br />
 
-npm install --save angular2-chartjs 
-npm install --save ng2-ckeditor 
-npm install --save ng2-smart-table
-npm install --save @akveo/ng2-completer
+npm install --save angular2-chartjs  <br />
+npm install --save ng2-ckeditor <br />
+npm install --save ng2-smart-table <br />
+npm install --save @akveo/ng2-completer <br />
 
-npm install --save @angular/cdk @angular/animations
-npm install --save nebular-icons
-npm install crypto-random-string
+npm install --save @angular/cdk @angular/animations <br />
+npm install --save nebular-icons <br />
+npm install crypto-random-string <br />
 
 Then : 
 
