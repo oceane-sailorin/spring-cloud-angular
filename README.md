@@ -85,6 +85,9 @@ npm install --save @angular/cdk @angular/animations <br />
 npm install --save nebular-icons <br />
 npm install crypto-random-string <br />
 
+start ng serve : <br />
+ng serve --proxy-config proxy.conf.json<br />
+
 Then : 
 
 Run project as spring boot app to check if server ok
