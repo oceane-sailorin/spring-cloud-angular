@@ -1,5 +1,6 @@
 Application to match clients needs and candidates (recruitment business management) <br />
-Microservices architecture
+Microservices architecture : RESTful microservice nodejs application, RESTful microservice auth application, RESTful microservice j2ee application for any connection with the database
+Database : postgresql
 
 # Installation software
 
