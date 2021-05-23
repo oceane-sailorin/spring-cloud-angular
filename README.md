@@ -2,6 +2,8 @@ Application to match clients needs and candidates (recruitment business manageme
 Microservices architecture : RESTful microservice nodejs application, RESTful microservice auth application, RESTful microservice j2ee application for any connection with the database <br />
 Database : postgresql
 
+schema in schema.sql
+
 # Installation software
 
 Download docker (latest stable version in https://www.docker.com/)
@@ -92,4 +94,5 @@ ng serve --proxy-config proxy.conf.json<br />
 Then : 
 
 Run project as spring boot app to check if server ok
+
 
